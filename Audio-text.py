@@ -3,8 +3,13 @@ import time
 from pydub import AudioSegment
 from google import genai
 import json
+from dotenv import load_dotenv
+load_dotenv()
 
-client = genai.Client(api_key="AIzaSyClsnqiztpCmV1avsdbGZeD9mleuezw5w8")
+openai_apikey =  os.getenv("OPENAI_API_KEY")
+gemini_apikey = os.getenv("GEMINI_APIKEY")
+
+client = genai.Client(api_key=gemini_apikey)
 
 
 # def convert_to_wav(file_path):
