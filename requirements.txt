@@ -1,0 +1,11 @@
+openai
+google-generativeai
+python-dotenv
+pyaudio
+pydub
+flask
+numpy
+
+If you face issues installing pyaudio on Windows, install it using:
+pip install pipwin
+pipwin install pyaudio
