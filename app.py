@@ -1,10 +1,15 @@
 from flask import Flask, render_template, request, jsonify, Response, send_from_directory, stream_with_context
 import os
 from openai import OpenAI
-from config import Api_Key, OpenAI_ApiKey
+
 from pathlib import Path
 import time
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
+
+openai_apikey =  os.getenv("OPENAI_API_KEY")
+gemini_apikey = os.getenv("GEMINI_APIKEY")
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'User_Audio'
@@ -14,11 +19,11 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # Initialize OpenAI client
-open_client = OpenAI(api_key=OpenAI_ApiKey)
+open_client = OpenAI(api_key=openai_apikey)
 
 # Initialize Gemini client for text generation
 client_text = OpenAI(
-    api_key=Api_Key,
+    api_key=openai_apikey,
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 
