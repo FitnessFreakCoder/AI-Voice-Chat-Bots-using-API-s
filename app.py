@@ -8,7 +8,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 load_dotenv()
 
-openai_apikey =  os.getenv("OPENAI_API_KEY")
+openai_apikey =  os.getenv("OPENAI_APIKEY")
 gemini_apikey = os.getenv("GEMINI_APIKEY")
 
 app = Flask(__name__)

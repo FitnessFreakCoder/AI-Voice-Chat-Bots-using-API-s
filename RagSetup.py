@@ -16,7 +16,7 @@ import queue
 from dotenv import load_dotenv
 load_dotenv()
 
-openai_apikey =  os.getenv("OPENAI_API_KEY")
+openai_apikey =  os.getenv("OPENAI_APIKEY")
 gemini_apikey = os.getenv("GEMINI_APIKEY")
 
 client = genai.Client(api_key=gemini_apikey)
